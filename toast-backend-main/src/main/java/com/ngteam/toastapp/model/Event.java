@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -32,4 +33,6 @@ public class Event {
     @JoinColumn(name = "user_id")
     @ManyToOne
     private User user;
+    @ManyToMany
+    private List<User> users;
 }

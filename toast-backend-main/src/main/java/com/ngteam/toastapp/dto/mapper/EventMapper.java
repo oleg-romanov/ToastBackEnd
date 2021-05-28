@@ -6,8 +6,6 @@ import com.ngteam.toastapp.model.Event;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,36 +44,10 @@ public class EventMapper {
                 .category(categoryMapper.toCategoryDtoConvert(event.getCategory()))
                 .eventType(eventTypeMapper.toEventTypeDtoConvert(event.getEventType()))
                 .user(userMapper.toUserDtoOut(event.getUser()))
+                .participants(userMapper.toUserDtoList(event.getUsers()))
                 .build();
-        System.out.println(event.getDate());
-//        EventOutDto eventOutDto = new EventOutDto();
-//        eventOutDto.setId(event.getId());
-//        eventOutDto.setName(event.getName());
-//        eventOutDto.setDescription(event.getDescription());
-//        eventOutDto.setDate(event.getDate());
-////        eventOutDto.setEventType(eventTypeMapper.toEventTypeDtoConvert(event.getEventType()));
-//        eventOutDto.setCategory(categoryMapper.toCategoryDtoConvert(event.getCategory()));
-//        eventOutDto.setUser(userMapper.toUserDtoOut(event.getUser()));
         return eventOutDto;
     }
-
-/*      //autizm with flague//
-
-    public EventTypeOutDto toEventTypeOutDtoConvert(EventType eventType, boolean flag) {
-        EventTypeOutDto eventTypeOutDto = new EventTypeOutDto();
-        eventTypeOutDto.setId(eventType.getId());
-        eventTypeOutDto.setName(eventType.getName());
-        if(flag == true) {
-            eventTypeOutDto.setEvents(
-                    eventType.getEvents()
-                            .stream()
-                            .map(event -> event.getName() + " id " + event.getId())
-                            .collect(Collectors.toList())
-            );
-        }
-        return eventTypeOutDto;
-    }
-*/
 
     public List<Event> toEventList(List<EventDto> eventDtos) {
         return eventDtos

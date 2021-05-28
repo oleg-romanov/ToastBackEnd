@@ -1,12 +1,9 @@
 package com.ngteam.toastapp.dto.out;
 
 import com.ngteam.toastapp.dto.in.CategoryDto;
-//import com.ngteam.toastapp.dto.in.EventTypeDto;
 import com.ngteam.toastapp.dto.in.EventTypeDto;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import java.util.Date;
 import java.util.List;
 
 @Data

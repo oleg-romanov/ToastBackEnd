@@ -20,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,6 +61,7 @@ public class EventServiceImpl extends ResponseCreator implements EventService {
                 .category(category)
                 .eventType(eventType)
                 .user(user)
+                .users(Collections.emptyList())
                 .build();
         eventRepository.save(event);
         return createGoodResponse(eventMapper.toEventOutDtoConvert(event));
@@ -70,6 +72,7 @@ public class EventServiceImpl extends ResponseCreator implements EventService {
         Long userId = jwtHelper.getUserFromHeader(authorization).getId();
         Event event = eventRepository.findByIdAndUserId(id, userId)
                 .orElseThrow(() -> new NotFoundException("Event with id " + id + " not found"));
+        // Event event1 = eventRepository.findByIdAndUserId(id, userId);
         event.setName(eventDto.getName());
         event.setCategory(categoryRepository.findById(eventDto.getCategoryId())
                 .orElseThrow(() -> new NotFoundException("Category with id " + eventDto.getCategoryId() + " not found")));

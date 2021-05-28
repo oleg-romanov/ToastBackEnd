@@ -33,4 +33,6 @@ public class User {
     private State state;
     @Column
     private String confirmCode;
+    @ManyToMany(mappedBy = "users")
+    private List<Event> events;
 }

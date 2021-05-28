@@ -91,7 +91,7 @@ public class CategoryServiceImpl extends ResponseCreator implements CategoryServ
     public void createDefaultCategories() {
         String [] categoryNames = {"Друзья", "Родственники", "Коллеги", "Животные"};
         for (int i = 0; i < categoryNames.length; i++) {
-            Optional<Category> category0 = categoryRepository.findByName(categoryNames[i]);
+            Optional<Category> category0 = categoryRepository.findByName(categoryNames[i]).stream().findFirst();
             if (category0.isPresent()) {
                 continue;
             }

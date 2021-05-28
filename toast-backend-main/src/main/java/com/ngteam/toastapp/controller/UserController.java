@@ -1,7 +1,5 @@
 package com.ngteam.toastapp.controller;
 
-import com.ngteam.toastapp.dto.in.SignUpDto;
-import com.ngteam.toastapp.repositories.UserRepository;
 import com.ngteam.toastapp.security.JwtHelper;
 import com.ngteam.toastapp.dto.in.ProfileUpdateDto;
 import com.ngteam.toastapp.dto.in.UserDto;
@@ -9,9 +7,7 @@ import com.ngteam.toastapp.model.User;
 import com.ngteam.toastapp.services.UserService;
 import com.ngteam.toastapp.utils.ResponseCreator;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,8 +17,6 @@ public class UserController extends ResponseCreator {
 
     private final JwtHelper jwtHelper;
     private final UserService userService;
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
     @GetMapping
     ResponseEntity getProfile(@RequestHeader String authorization) {

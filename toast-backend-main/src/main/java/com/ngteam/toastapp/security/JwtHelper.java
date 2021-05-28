@@ -21,8 +21,7 @@ public class JwtHelper {
     @Autowired
     private UserRepository userRepository;
 
-//    @Value("${jwt.secret}")
-    @Value("oleg")
+    @Value("${jwt.secret}")
     private String jwtSecret;
 
     private static final String AUTHORIZATION = "Authorization";
