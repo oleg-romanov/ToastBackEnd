@@ -2,7 +2,7 @@
 *.class
 
 # application.properties
-*.properties
+application.properties
 
 # DS_Store
 *.DS_Store
