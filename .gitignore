@@ -2,7 +2,7 @@
 *.class
 
 # application.properties
-toast-backend-main/src/main/resources/application.properties
+*.properties
 
 # DS_Store
 *.DS_Store
